@@ -23,6 +23,11 @@ public class DomesticTransactionController {
         return domesticTransactionService.findById(id);
     }
 
+    @GetMapping("/name/{senderName}")
+    List<DomesticTransaction> findByName(@PathVariable String senderName) {
+        return domesticTransactionService.findByName(senderName);
+    }
+
     @GetMapping
     List<DomesticTransaction> findAll() {
         return domesticTransactionService.findAll();

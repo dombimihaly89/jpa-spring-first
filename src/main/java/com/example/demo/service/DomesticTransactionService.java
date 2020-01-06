@@ -21,6 +21,10 @@ public class DomesticTransactionService {
     @Autowired
     private DomesticTransactionJPARepository domesticTransactionJPARepository;
 
+    public List<DomesticTransaction> findByName(String name) {
+        return domesticTransactionJPARepository.findBySenderName(name);
+    }
+
     public DomesticTransaction findById(Long id) {
         return domesticTransactionJPARepository.findById(id).orElse(null);
     }
