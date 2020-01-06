@@ -13,7 +13,7 @@ public class DomesticTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID transactionId;
+    private Long transactionId;
 
     @Column
     private String senderName;
@@ -37,11 +37,11 @@ public class DomesticTransaction {
         this.amount = amount;
     }
 
-    public UUID getTransactionId() {
+    public Long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(UUID id) {
+    public void setTransactionId(Long id) {
         this.transactionId = id;
     }
 

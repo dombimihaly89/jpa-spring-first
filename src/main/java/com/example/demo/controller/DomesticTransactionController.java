@@ -19,7 +19,7 @@ public class DomesticTransactionController {
     DomesticTransactionService domesticTransactionService;
 
     @GetMapping("/{id}")
-    DomesticTransaction findById(@PathVariable UUID id) {
+    DomesticTransaction findById(@PathVariable Long id) {
         return domesticTransactionService.findById(id);
     }
 
@@ -39,7 +39,7 @@ public class DomesticTransactionController {
     }
 
     @DeleteMapping("/{id}")
-    DomesticTransaction deleteDomesticTransaction(@PathVariable UUID id) {
-        return domesticTransactionService.deleteDomesticTransaction(id);
+    void deleteDomesticTransaction(@PathVariable Long id) {
+        domesticTransactionService.deleteDomesticTransaction(id);
     }
 }

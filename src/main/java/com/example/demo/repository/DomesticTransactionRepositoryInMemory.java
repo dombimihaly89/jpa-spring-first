@@ -5,8 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class DomesticTransactionRepositoryInMemory {
+/*
 
     private Map<UUID, DomesticTransaction> domesticTransactionMap = new HashMap<>();
 
@@ -54,5 +55,6 @@ public class DomesticTransactionRepositoryInMemory {
         }
         return null;
     }
+*/
 
 }

@@ -21,11 +21,8 @@ public class DomesticTransactionService {
     @Autowired
     private DomesticTransactionJPARepository domesticTransactionJPARepository;
 
-    @Autowired
-    private DomesticTransactionRepositoryInMemory domesticTransactionRepositoryInMemory;
-
-    public DomesticTransaction findById(UUID id) {
-        return domesticTransactionRepositoryInMemory.findById(id);
+    public DomesticTransaction findById(Long id) {
+        return domesticTransactionJPARepository.findById(id).orElse(null);
     }
 
     public List<DomesticTransaction> findAll() {
@@ -44,9 +41,9 @@ public class DomesticTransactionService {
     }
 
     public DomesticTransaction updateDomesticTransaction(DomesticTransaction data) {
-        if (data.getTransactionId() == null) {
+        /*if (data.getTransactionId() == null) {
             return domesticTransactionRepositoryInMemory.addDomesticTransaction(data);
-        }
+        }*/
         validateSenderName(data);
         validateHostName(data);
         validateHostAccountNumber(data);
@@ -54,8 +51,8 @@ public class DomesticTransactionService {
         return domesticTransactionJPARepository.save(data);
     }
 
-    public DomesticTransaction deleteDomesticTransaction(UUID id) {
-        return domesticTransactionRepositoryInMemory.deleteDomesticTransaction(id);
+    public void deleteDomesticTransaction(Long id) {
+        domesticTransactionJPARepository.deleteById(id);
     }
 
     public void validateSenderName(DomesticTransaction data) {
